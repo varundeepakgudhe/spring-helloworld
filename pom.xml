@@ -60,12 +60,11 @@
 
 					<to>
 					<!-- Jenkins will pass this at build time -->
-					<image>${project.version}-${git.commit}</image>
-					<!-- <tags>
-						<tag>latest</tag>
+					<image>${image.name}</image>
+					<tags>
+						<!-- <tag>latest</tag> -->
 						<tag>${project.version}-${git.commit}</tag>
-					</tags> -->
-
+					</tags>
 					</to>
 
 					<container>
