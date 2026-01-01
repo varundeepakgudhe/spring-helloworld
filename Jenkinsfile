@@ -16,6 +16,12 @@ pipeline {
 
     stage('Build & Push Image (Jib)') {
       steps {
+        withCredentials([usernamePassword(
+          credentialsId: '239362d5-8f39-407c-b9a6-f21c89b89af9',        
+          usernameVariable: 'AWS_ACCESS_KEY_ID',
+          passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+        )])
+        {
         sh '''
           chmod +x mvnw || true
           ./mvnw -DskipTests \
@@ -23,6 +29,7 @@ pipeline {
             -Dgit.commit=${GIT_COMMIT} \
             compile jib:build
         '''
+        }
       }
     }
   }
