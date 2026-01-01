@@ -24,7 +24,7 @@ pipeline {
         {
         sh '''
 
-          echo "Key prefix used by Jenkins: ${AWS_ACCESS_KEY_ID:0:6}"
+          echo "Key prefix used by Jenkins: $(echo "$AWS_ACCESS_KEY_ID" | cut -c1-6)"
 
         '''
         }
