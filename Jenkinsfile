@@ -14,15 +14,6 @@ pipeline {
       steps { checkout scm }
     }
 
-    stage('Login to ECR') {
-      steps {
-        sh '''
-          aws ecr get-login-password --region ${AWS_REGION} \
-            | docker login --username AWS --password-stdin ${ECR_REGISTRY}
-        '''
-      }
-    }
-
     stage('Build & Push Image (Jib)') {
       steps {
         sh '''
