@@ -24,14 +24,8 @@ pipeline {
         {
         sh '''
 
-          echo "AWS_ACCESS_KEY_ID set? ${AWS_ACCESS_KEY_ID:+yes}"
+          echo "Key prefix used by Jenkins: ${AWS_ACCESS_KEY_ID:0:6}"
 
-          
-          chmod +x mvnw || true
-          ./mvnw -DskipTests \
-            -Dimage.name=${IMAGE_NAME} \
-            -Dgit.commit=${GIT_COMMIT} \
-            compile jib:build
         '''
         }
       }
