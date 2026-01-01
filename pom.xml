@@ -61,6 +61,7 @@
 					<to>
 					<!-- Jenkins will pass this at build time -->
 					<image>${image.name}</image>
+					<credHelper>ecr-login</credHelper>
 					<tags>
 						<!-- <tag>latest</tag> -->
 						<tag>${project.version}</tag>
