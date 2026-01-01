@@ -19,6 +19,7 @@ pipeline {
         sh '''
           chmod +x mvnw || true
           ./mvnw -DskipTests \
+            -Dimage.name=${IMAGE_NAME} \
             -Dgit.commit=${GIT_COMMIT} \
             compile jib:build
         '''
