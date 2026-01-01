@@ -23,6 +23,10 @@ pipeline {
         )])
         {
         sh '''
+
+          echo "AWS_ACCESS_KEY_ID set? ${AWS_ACCESS_KEY_ID:+yes}"
+
+          
           chmod +x mvnw || true
           ./mvnw -DskipTests \
             -Dimage.name=${IMAGE_NAME} \
